@@ -1,0 +1,9 @@
+This is a react app for fetching the pet data
+build on webpack bundler
+instead of using the external libraries i used the SASS
+
+i also write the service file just in case:
+i didnt use it in my code because i also wrote everything before coming to the idea of service file, but just in case i also write the service file for "STATIC API CALL AND REQUESTS"
+
+how to run:
+1. clone everything and just type 'npm start' in terimal

@@ -1,0 +1,12 @@
+.noteList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .noteItem {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  
