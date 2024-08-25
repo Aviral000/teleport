@@ -9,8 +9,6 @@ interface NotesItemProps {
 
 const NotesItem: React.FC<NotesItemProps> = ({ note, onEdit, onDelete }) => {
   const handleEdit = () => {
-    // You might want to implement a more sophisticated edit functionality
-    // that preserves formatting
     const newContent = prompt('Edit note content:', note.content);
     if (newContent !== null) {
       onEdit(note.id, newContent);

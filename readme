@@ -1,9 +1,10 @@
-This is a react app for fetching the pet data
+This is a react app for fetching the text handler
 build on webpack bundler
-instead of using the external libraries i used the SASS
+I use styling library(Material UI), SASS, react-quill and others
 
-i also write the service file just in case:
-i didnt use it in my code because i also wrote everything before coming to the idea of service file, but just in case i also write the service file for "STATIC API CALL AND REQUESTS"
+I make use of local storage and formatted data is also saved in local storage
+
+I use the drag and drop functionality from the very scratch (i prefer to use draggrable library, but i believe in more optimised design drag and drop may lead to disturbance in the design work flow of the DOM)
 
 how to run:
 1. clone everything and just type 'npm start' in terimal

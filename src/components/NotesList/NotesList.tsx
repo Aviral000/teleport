@@ -12,9 +12,11 @@ interface NoteListProps {
   onEdit: (id: number, newContent: string) => void;
   onDelete: (id: number) => void;
   onReorder: (reorderedNotes: Note[]) => void;
+  selectedCategory: string;
+  searchTerm: string
 }
 
-const NoteList: React.FC<NoteListProps> = ({ notes, onEdit, onDelete, onReorder }) => {
+const NoteList: React.FC<NoteListProps> = ({ notes, onEdit, onDelete, onReorder, selectedCategory, searchTerm }) => {
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>, index: number) => {
     e.dataTransfer.setData('noteIndex', index.toString());
@@ -32,9 +34,19 @@ const NoteList: React.FC<NoteListProps> = ({ notes, onEdit, onDelete, onReorder 
     e.preventDefault();
   };
 
+  const filteredNotes = notes.filter(note => {
+    const matchesCategory = selectedCategory === 'All' ||
+      (selectedCategory === 'Important' && note.content.includes('#important')) ||
+      (selectedCategory === 'Todo' && note.content.includes('#todo'));
+
+    const matchesSearchTerm = note.content.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return matchesCategory && matchesSearchTerm;
+  });
+
   return (
     <div className='noteList'>
-      {notes.map((note, index) => (
+      {filteredNotes.map((note, index) => (
         <div
           key={note.id}
           draggable

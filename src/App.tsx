@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RichTextEditor from './components/RichTextEditor/RichTextEditor';
 import NoteList from './components/NotesList/NotesList';
+import CategorySelector from './components/CategorySelector/CategorySelector';
+import SearchBar from './components/SearchBar/SearchBar';
 
 type Note = { id: number; content: string };
 
@@ -17,6 +19,8 @@ const saveNotesToStorage = (notes: Note[]) => {
 export default function App() {
   const [notes, setNotes] = useState<Note[]>(getNotesFromStorage);
   const [noteContent, setNoteContent] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     saveNotesToStorage(notes);
@@ -66,6 +70,7 @@ export default function App() {
             path='/'
             element={
               <>
+                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                 <RichTextEditor value={noteContent} onChange={setNoteContent} />
                 <button
                   style={buttonStyle}
@@ -75,11 +80,14 @@ export default function App() {
                 >
                   Add Note
                 </button>
+                <CategorySelector selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 <NoteList
                   notes={notes}
                   onEdit={editNote}
                   onDelete={deleteNote}
                   onReorder={handleReorder}
+                  selectedCategory={selectedCategory}
+                  searchTerm={searchTerm}
                 />
               </>
             }
