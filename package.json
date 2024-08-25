@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "description": "frontend directory of the malik-xperts",
+  "description": "frontend directory of the teleport assessment",
   "main": "src/index.jsx",
   "scripts": {
     "start": "webpack serve --mode development",
@@ -9,12 +9,7 @@
   },
   "keywords": [
     "frontend",
-    "UI",
-    "malik-xperts",
-    "clothing",
-    "women",
-    "men",
-    "children"
+    "UI"
   ],
   "author": "Aviral Malik",
   "license": "ISC",
