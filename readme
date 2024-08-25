@@ -6,5 +6,9 @@ I make use of local storage and formatted data is also saved in local storage
 
 I use the drag and drop functionality from the very scratch (i prefer to use draggrable library, but i believe in more optimised design drag and drop may lead to disturbance in the design work flow of the DOM)
 
+because of small scale data transferring i prefer to use the prop drilling, because state management is simple in this project and not too logical.
+
 how to run:
 1. clone everything and just type 'npm start' in terimal
+2. i also provided the deploy Link in the github repo itself
+3. Direct url - https://teleport-cyan.vercel.app/
